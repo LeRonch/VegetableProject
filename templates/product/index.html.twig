@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les produits !{% endblock %}
+
+{% block body %}
+<section id="product">
+
+    <div class="container">
+
+        <h1>Tous les produits !</h1>
+
+        {% if app.user.buyer.canBuy  == false %}
+            <div class="alert alert-success">
+                Vous devez compléter votre profil pour ajouter des produits à votre panier !
+            </div>
+        {% endif %}
+
+        <div id='searchBar'>
+            {{ form_start(form) }}
+            Chercher par
+                {{ form_widget(form.produit, { 'attr': {'value': '', 'type':'text', 'placeholder':'Nom' } }) }}
+            Ou par 
+                {{ form_widget(form.type) }}
+                <button class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="row">
+        {% for product in products %}
+        {% set realPrice = product.price / 100 %}
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body" >
+                    <img class="card-img-top" src="{{ product.image }}" alt="{{ product.productName }}">
+                        <h2>{{ product.productName }}</h2>
+                        <p>Vendu par : <br> {{ product.client.name }}</p>
+                        <h4 style="margin-bottom:30px;">{{ realPrice }} €/kg</h4>
+                    {% if app.user.buyer.canBuy  == true %}
+                        <a href="{{ path('product_show', {'id': product.id}) }}">Voir la fiche produit</a>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+</section>
+{% endblock %}

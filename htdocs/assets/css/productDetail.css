@@ -1,0 +1,54 @@
+#detail{
+    height: 100%;
+    background-image: url('../images/profilebg2rev.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#detail #retour{
+
+    padding-left: 15px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#detail #retour a{
+
+    text-decoration: none;
+    color: rgb(80, 184, 32);
+    font-weight: bold;
+}
+
+#detail .row{
+    margin:0;
+}
+
+#detail #productseller{
+    max-width: 24%;
+    border: solid 1px rgb(78, 182, 31);
+    text-align: center;
+    background-color: white;
+}
+
+#detail #productseller h2{
+    margin-top: 15px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: 600;
+}
+
+#detail #productshow{
+    margin-left: 1%;
+    max-width: 64%;
+    border: solid 1px rgb(78, 182, 31);
+    padding: 0;
+    border-radius: 0;
+}
+
+#detail #productshow img{
+    width: 40%;
+    border: solid 2px rgb(78, 182, 31);
+    border-radius: 20px;
+}

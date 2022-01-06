@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+    <div id="table">
+		<h3>Ajouter un produit</h3>
+		<br>
+		<label for="nom">Nom </label>
+			{{ form_widget(form.product_name, { 'attr': {'required': 'true'}}) }}
+		<br>
+
+		<label for="prix">Prix </label>
+			{{ form_widget(form.price, { 'attr': {'min': '1', 'type':'number' } }) }}
+		<br>
+
+		<label for="quantité">Quantité </label>
+			{{ form_widget(form.quantity, { 'attr': {'min': '1', 'required': 'true'}}) }}
+		<br>
+	 
+	 	<label for="type">Type </label>
+			{{ form_widget(form.type) }}
+		<br>
+
+		<label for="image">Image </label>
+			{{ form_widget(form.image, { 'attr': {'required': 'true'}}) }}
+
+		<br>
+        <button class="btn">Modifier</button>
+	</div>
+{{ form_end(form) }}

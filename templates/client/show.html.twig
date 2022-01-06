@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+    <section id="profilComplet">
+
+        <h1>Votre Profil</h1>
+
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Profil')">Vos Informations</button>
+            <button class="tablinks active" onclick="openCity(event, 'Produit')">Vos Produits</button>
+            <button class="tablinks" onclick="openCity(event, 'Commande')">Vos Commandes</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Profil" class="tabcontent">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Nom</th>
+                        <td>{{ client.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{ client.adress }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ville</th>
+                        <td>{{ client.postal }} {{ client.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Pays</th>
+                        <td>{{ client.country }}</td>
+                    </tr>
+                    <tr>
+                        <th>Statut</th>
+                        {% if client.statut == false %}
+                        <td>Particulier</td>
+                        {% else %}
+                        <td>Professionnel</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th>Horaires</th>
+                        <td>{{ client.days }}</td>
+                    </tr>
+                    <tr>
+                        <th>Téléphone</th>
+                        <td>{{ client.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Mail</th>
+                        <td>{{ client.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Modifier</th>
+                        <td>
+                            <a href="{{ path ('client_edit', {'id': app.user.client.id}) }}">Éditer votre profil</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="Produit" class="tabcontent tab-content-active" style="display: block;">
+            
+            {% if client.seller == 1 %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th id="first">Produits</th>
+                            <th>Prix au kilo</th>
+                            <th>Quantité (en kilo)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    {% for product in products %}
+
+                        {% set realPrice = product.price / 100 %}
+                        <tr>
+                            <td id="first">{{ product.productName }}</td>
+                            <td>{{ realPrice }} €/kg</td>
+                            <td>{{ product.quantity }} kgs</td>
+                            <td>
+                                <a href="{{ path('product_edit', {'id': product.id}) }}">Éditer</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucun Produit trouvé</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+                    
+                <div id="ajoutProduit">
+                    {{ include('product/_form.html.twig') }}
+                </div>
+                
+            {% else %}
+
+                <div class="alert alert-success">
+                    Vous devez compléter votre 
+                    <a href="{{ path ('client_edit', {'id': app.user.client.id}) }}"> profil</a>
+                    pour vendre vos produits !
+                </div>
+                
+            {% endif %}
+
+        </div>
+
+        <div id="Commande" class="tabcontent">
+
+            {% if client.seller == 1 %}
+            <div class="row" style="margin:0;">
+                {% for orderItem in orderItems %}
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;text-align:center;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{orderItem.product.productName}}</h5>
+                            <p class="card-text">Quantité : {{orderItem.quantity}} kg</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Commande n°{{orderItem.orderRef.id}} </li>
+                            <li class="list-group-item">{{orderItem.orderRef.createdAt ? orderItem.orderRef.createdAt|date('d-m-Y') : ''}}</li>
+                            <li class="list-group-item">Statut : {{orderItem.orderRef.status}} </li>
+                        </ul>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Acheteur : {{orderItem.orderRef.buyer.name}} {{orderItem.orderRef.buyer.surname}}</li>
+                            <li class="list-group-item">Téléphone : {{orderItem.orderRef.buyer.number}} </li>
+                        </ul>
+                        {# <div class="card-body">
+                            <a href="" class="card-link">Réceptionné ?</a>
+                        </div> #}
+                    </div>
+                </div>                   
+                {% endfor %}
+            </div>                   
+
+            {% else %}
+
+                <div class="alert alert-success">
+                    Vous devez compléter votre 
+                    <a href="{{ path ('client_edit', {'id': app.user.client.id}) }}"> profil</a>
+                    pour vendre vos produits !
+                </div>
+                
+            {% endif %}
+
+        </div>
+
+    </section>
+{% endblock %}

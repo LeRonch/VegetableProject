@@ -1,0 +1,169 @@
+#profilComplet{
+    height: auto;
+}
+
+#Produit td{
+
+    text-align: center;
+
+}
+
+#Produit tr{
+
+    text-align: center;
+
+}
+
+#Produit #first{
+
+    text-align: left;
+
+}
+
+#profilComplet h1{
+
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+#profilComplet a{
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    color : white;
+    font-weight: bold;
+    width: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* EDITION PROFIL */
+
+#modifProfil{
+    height: auto;
+    text-align: center;
+    background-image: url('../images/profilebg.jpg');
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 40px;
+}
+
+#modifProfil h1{
+
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+    padding-top: 20px;
+}
+#modifProfil #field{
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+
+#modifProfil #table{
+    border: solid 1px rgb(78, 182, 31);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 40px;
+    background-color: white;
+}
+
+
+#modifProfil #last{
+    margin-bottom: 100px;
+}
+
+#modifProfil #user{
+
+    font-size: 80px;
+    color: rgb(78, 182, 31);
+    margin-bottom: 30px;
+}
+
+#modifProfil button{
+    margin-top: 25px;
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding: 15px;
+    color : white;
+    font-weight: bold;
+    width: 150px;
+    margin-bottom: 25px;
+}
+
+#modifProfil label{
+    width: 15%;
+    text-align: left;
+}
+
+/* Ajout Produit */
+
+#ajoutProduit{
+    height: auto;
+    text-align: center;
+    margin-bottom: 50px
+}
+
+#ajoutProduit #field{
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+
+#ajoutProduit #table{
+    border-top: solid 1px rgb(78, 182, 31);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 10px;
+}
+
+
+#ajoutProduit .btn{
+    margin-top: 25px;
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding: 15px;
+    color : white;
+    font-weight: bold;
+    width: 150px;
+}
+
+#ajoutProduit .btn2{
+    margin-top: 25px;
+    background-color: red;
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+    color : white;
+    font-weight: bold;
+    width: 150px;
+}
+
+#ajoutProduit label{
+    width: 15%;
+    text-align: left;
+}
+
+#ajoutProduit h1{
+
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+    padding-top: 20px;
+}

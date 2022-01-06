@@ -1,0 +1,29 @@
+{{ form_start(form, {
+             'attr': {'id': 'payment-form'}
+         }) }}
+    <div class="container p-0">
+        <div class="card px-4">
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Nom sur la carte</p> 
+                        <input class="form-control mb-3" type="text">
+                    </div>
+                </div>
+                <div class="col-12">
+                   
+                <div id="card-element" class="input-field col s12" style="margin-top:2%;">
+                    <input id="card_number" type="text" class="validate">
+                    <label for="card-element" for="card_number">Numéro de la carte</label>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mb-3"> 
+                        <span class="ps-3">Payer {{ truePrice }} €</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+{{ form_end(form) }}

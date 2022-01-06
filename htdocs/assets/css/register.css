@@ -1,0 +1,101 @@
+#register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    background: url('../images/login.jpg') no-repeat;
+    background-size: cover;
+    
+  }
+
+  #register:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.3;
+  }
+
+  #register h3{
+    font-family: 'Oooh Baby', cursive;
+    text-align: center;
+    font-size: 2.5em;
+    color: #59B720;
+    font-weight: 800;
+    text-shadow: white 1px 1px 0px;
+    padding-bottom: 15px;
+  }
+  
+  #register  .register-form {
+    width: 100%;
+    padding: 2em;
+    position: relative;
+    background-color: rgb(209, 252, 209);
+   
+  }
+  
+  #register .register-form:before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 2px;
+    
+    width: 100%;
+    background: linear-gradient(to right, rgb(84, 175, 42), #59B720);
+  }
+  @media screen and (min-width: 600px) {
+    .register-form {
+      width: 50vw;
+      max-width: 35em;
+    }
+  }
+
+  #register .flex-row {
+    display: flex;
+    margin-bottom: 1em;
+  }
+  
+  #register .lf--label {
+    width: 2em;
+    display: flex;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  #register .lf--input {
+    flex: 1;
+    padding: 0.5em;
+    border: 0;
+    color: black;
+    font-size: 1rem;
+  }
+
+  
+  #register .lf--submit {
+    display: block;
+    padding: 0.2em;
+    width: 100%;
+    background: linear-gradient(to right, #76db37, rgb(76, 160, 37));
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    font-family: 'Oooh Baby', cursive;
+
+  }
+  #register .lf--submit:focus {
+    outline: none;
+    transition: transform 0.15s ease;
+    transform: scale(1.1);
+  }
+  

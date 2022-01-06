@@ -1,0 +1,19 @@
+#confirmation{
+    height :100%;
+    padding-top: 35px;
+    background-image: url('../images/BandFruit.jpg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+#confirmation h1{
+
+    margin-bottom: 35px;
+    font-size: 50px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+
+}

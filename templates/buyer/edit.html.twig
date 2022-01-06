@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+<section id="profile">
+    <h1>Modifer votre profil</h1>
+
+    {{ include('buyer/_form.html.twig', {'button_label': 'Update'}) }}
+</section>
+{% endblock %}

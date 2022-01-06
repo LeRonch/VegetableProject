@@ -1,0 +1,66 @@
+#product{
+
+    text-align: center;
+    background-image: url('../images/profilebg2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#product h1{
+    padding-top: 50px;
+    font-size: 50px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    margin-bottom: 20px;
+
+    font-weight: bold;
+}
+
+#product a{
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color : white;
+    font-weight: bold;
+    margin-top: 20px !important;
+}
+
+#product .card{
+    margin-bottom: 30px;
+}
+
+#product .card-img-top{
+    height: 10em;
+}
+
+#product #searchBar{
+
+    background-color: rgb(115, 218, 67);
+    border: solid 2px green;
+    margin-right: 17.5%;
+    margin-left: 17.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 50px;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#product #searchBar i{
+    color: rgb(85, 187, 37);
+    
+}
+
+#product #searchBar button{
+    
+    border-radius: 50px;
+    border: solid 1px black;
+    background-color: white;
+    margin-left: 10%;
+}

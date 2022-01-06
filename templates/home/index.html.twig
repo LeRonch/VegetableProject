@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Végé'Table{% endblock %}
+
+{% block body %}
+
+    <section id="title">
+        <div class="bg-image"></div>
+
+        <div class="bg-text">
+            <h1>
+                <img src="{{asset ('assets/images/fruit.png')}}" alt="">
+                <span>Végé'Table</span>
+            </h1>
+            <p>Cliquer, Payer, Collecter !</p>
+        </div>
+    </section>
+
+    <section id="about">
+
+        <div>
+            <h1>Végé'Table ? C'est quoi ?</h1>
+
+            <p id="presentation">
+                <span>Végé'table </span> est une plateforme gratuite de Click & Collect de fuits et légumes sur la région roannaise.
+                <br><br>
+                Si vous êtes client, la plateforme vous permet d'acheter des produits directement au producteur. Vous n'avez qu'à cliquer sur les produits qui vous intéressent, puis valider votre panier, payer et aller chercher !
+                <br><br>
+                Si vous êtes producteur, vous pouvez mettre en vente gratuitement vos produits, gérer vos stocks et suivre et valider vos commandes en cours !
+            </p>
+        </div>
+    {% if is_granted('ROLE_SELLER') %}
+    
+    {% elseif is_granted('ROLE_BUYER') %}
+    
+    {% else %}
+        <div id="join">
+            Intéressez ? Alors rejoignez-nous en cliquant sur le bouton ci-dessous <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            <br>
+            <a id="sign" class="navbar-brand" href="{{ path('register') }}">Inscription <i class="fa fa-user-plus" aria-hidden="true"></i></a> 
+        </div>
+    {% endif %}
+
+    </section>
+
+  <hr id="separateur">
+    <section id="clickcollect">
+        <div class="row">
+
+          <div id="click" class="col-lg-4">
+
+            <h2><i class="fa fa-mouse-pointer" aria-hidden="true"></i></h2>
+
+            <h2 class="text">Cliquer</h2>
+
+            <p>Ajouter des produits à votre panier, puis modifier ou supprimer les à votre convenence !</p>
+          
+          </div>
+
+
+          <div id="pay" class="col-lg-4">
+
+            <h2><i class="fa fa-eur" aria-hidden="true"></i></h2>
+
+            <h2 class="text">Payer</h2>
+
+            <p>Une fois que votre commande est complète, passer au paiement en ligne parte carte bancaire !</p>
+       
+          </div>
+
+
+          <div id="collect" class="col-lg-4">
+
+            <h2><i class="fa fa-handshake-o" aria-hidden="true"></i></i></h2>
+
+            <h2 class="text">Collecter</h2>
+
+            <p>Votre commande est validée ! Vous n'avez plus qu'à aller la chercher directement chez le vendeur !</p>
+            
+          </div>
+    </section>
+
+    <section id='banner'>
+
+    </section>
+
+{% endblock %}

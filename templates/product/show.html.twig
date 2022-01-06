@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Produit{% endblock %}
+
+{% block body %}
+
+<section id="detail">
+
+    {% if is_granted('ROLE_BUYER') %}
+        <div id="retour">
+            <a href="{{ path('product_index') }}" >
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                Retour
+            </a>
+        </div>
+    {% set realPrice = product.price / 100 %}
+<div class="row">
+
+    <div id="productshow" class="card col-lg-8">
+
+        <div class="card-header" style="color:green;">
+        <b> Fiche Produit</b>
+        </div>
+
+        <div class="card-body">
+        <div class="row">
+            <div class="col-lg-7">
+                <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+            </div>
+         <div class="col-lg-1"></div>
+            <div class="col-lg-4" style="margin-top:5%;">
+                <h2 class="card-title"> <b> {{ product.productName }}</b></h2>
+                <h4 class="card-text">{{ realPrice }} €/kg</h4>
+            </div>
+           
+        </div>
+
+            {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+                <div class="form-group">
+                    <label for="quantity">Quantité</label>
+                    {{ form_widget(form.quantity, {
+                        'attr': {
+                            'class': 'form-control ' ~ (form.quantity.vars.valid ? '' : 'is-invalid'),
+                            'min' : '1'
+                        }
+                    }) }}
+                    <div class="invalid-feedback">
+                        {{ form_errors(form.quantity) }}
+                    </div>
+                </div>
+                {{ form_widget(form.add, {'attr': {'class': 'btn btn-success w-25'}}) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+       
+
+        <div class="col-lg-1">
+        </div>
+
+        <div id="productseller" class="col-lg-3">
+            <h2>Vendu par</h2>
+            <br>
+            <p>
+            {{ product.client.name}} <br>
+            {{ product.client.phone}} <br>
+            {{ product.client.adress}} <br>
+            {{ product.client.postal}},
+            {{ product.client.city}}
+            {{ product.client.country}} <br>
+            </p>
+            <br>
+            <p>
+           <b>Statut </b>: <br> 
+            {% if product.client.statut == false %}
+                Particulier
+            {% else %}
+                Professionnel
+            {% endif %}
+            <br>
+            <br>
+           <b> Disponibilité </b>: <br> {{ product.client.days}}
+            </p>
+        </div>
+    </div>
+
+    {% elseif is_granted('ROLE_SELLER') %}
+
+        <div class="col-md-8">
+            <h1 class="mt-4 mt-md-0">{{ product.productName }}</h1>
+            <h2>{{ product.price }} €</h2>
+            <h2>{{ product.quantity }} kgs</h2>
+            <hr>
+        </div>
+
+    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a> 
+    {{ include('product/_delete_form.html.twig') }} 
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

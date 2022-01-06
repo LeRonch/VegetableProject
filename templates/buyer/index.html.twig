@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buyer index{% endblock %}
+
+{% block body %}
+    <h1>Buyer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>CanBuy</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for buyer in buyers %}
+            <tr>
+                <td>{{ buyer.id }}</td>
+                <td>{{ buyer.name }}</td>
+                <td>{{ buyer.number }}</td>
+                <td>{{ buyer.canBuy ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('buyer_show', {'id': buyer.id}) }}">show</a>
+                    <a href="{{ path('buyer_edit', {'id': buyer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('buyer_new') }}">Create new</a>
+{% endblock %}

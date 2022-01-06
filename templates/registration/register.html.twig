@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+        <section id="register">                   
+
+            {{ form_start(registrationForm, {'attr': {
+                'class': 'register-form'
+            }}) }}
+                <h3 class="text-extrabold">Rejoignez-nous !</h3>
+
+                <div class="flex-row">
+                    <label class="lf--label" for="mail">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </label>
+                    {{ form_widget(registrationForm.email, { 'attr': {
+                        'placeholder': 'Mail',
+                        'class': 'lf--input',
+                        'data-parsley-trigger' : "change",
+                        'data-parsley-error-message' : "L'adresse mail renseigné doit être valide."
+                    } }) }}
+                </div>
+
+                <div class="flex-row">
+                    <label class="lf--label" for="password">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </label>
+                    {{ form_widget(registrationForm.password.first, { 'attr': {
+                        'data-parsley-trigger' : "change",
+                        'data-parsley-minlength' : "6",
+                        'class': 'lf--input',
+                        'placeholder' : "Mot de Passe",
+                        'data-parsley-error-message' : "Le mot de passe doit faire au moins 6 charactères."
+                    } }) }}
+                </div>
+                <div class="flex-row">
+                    <label class="lf--label" for="password">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </label>
+                    {{ form_widget(registrationForm.password.second, { 'attr': {
+                        'data-parsley-trigger' : "change",
+                        'class': 'lf--input',
+                        'placeholder' : "Confirmation Mot de Passe",
+                        'data-parsley-equalto' :"#password",
+                        'data-parsley-error-message' : "Password does not match"
+                    } }) }}
+                </div>
+                <div class="checkbox">
+                    <br>
+                    {{ form_widget(registrationForm.seller) }}
+                    <label for="registration_form_agreeTerms"><b> Je souhaite devenir vendeur ! </b></label>
+                </div>
+                <div class="checkbox">
+                    {{ form_widget(registrationForm.agreeTerms, { 'attr' :{'oninvalid' : 'alert("Veuillez accpeter les conditions générales d\'utilisation")'}  }) }}
+                    <label for="registration_form_agreeTerms">J'ai lu et j'accepte les <a href="#!" target="_blank">conditions générales d'utilisation</a></label>
+                    <div class='red-text'>{{ form_errors(registrationForm.agreeTerms) }}</div>
+                </div>
+
+                <br>
+
+                <button type="submit" class="lf--submit">Inscription</button>
+
+                <br>
+                <div class="links">
+                    <a href="{{ path('login') }}">Déjà membre ? Cliquez ici !</a>
+                </div>
+            {{ form_end(registrationForm) }}       
+
+        </section>
+ 
+{% endblock %}

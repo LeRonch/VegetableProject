@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+<section id='cart'>
+<div class="container">
+    <h1>Votre Panier</h1>
+    {% if app.user.buyer.canBuy  == false %}
+        <div class="alert alert-success">
+            Vous devez compléter votre 
+            <a href="{{ path ('buyer_edit', {'id': app.user.buyer.id}) }}">
+                profil
+            </a> 
+            pour ajouter des produits à votre panier !
+        </div>
+    {% else %}
+            
+    {% if cart.items.count > 0 %}
+        <div class="row">
+            <div class="col-md-8">
+                {{ form_start(form) }}
+                <div class="card">
+                    <div class="card-header bg-success text-white d-flex">
+                        <h5>Contenu</h5>
+                        <div class="ml-auto">
+                            {{ form_widget(form.save, {'attr': {'class': 'btn btn-light'}}) }}
+                            {{ form_widget(form.clear, {'attr': {'class': 'btn btn-light'}}) }}
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for item in form.items %}
+                             <li class="list-group-item d-flex">
+                                <div class="flex-fill mr-2">
+                                    <h5 class="mt-0 mb-0">{{ item.vars.data.product.productName }}</h5>
+                                    <div class="form-inline mt-2">
+                                        <div class="form-group mb-0 mr-2">
+                                            {{ form_widget(item.quantity, {
+                                                'attr': {
+                                                    'class': 'form-control form-control-sm ' ~ (item.quantity.vars.valid ? '' : 'is-invalid')
+                                                }
+                                            }) }}
+                                            <div class="invalid-feedback">
+                                                {{ form_errors(item.quantity) }}
+                                            </div>
+                                        </div>
+                                        {{ form_widget(item.remove, {'attr': {'class': 'btn btn-danger btn-sm'}}) }}
+                                    </div>
+                                </div>
+                                <div class="flex-fill mr-2 text-right">
+                                {% set realPrice = item.vars.data.product.price / 100 %}
+                                {% set totalProduit = realPrice *  item.quantity.vars.value %}
+                                    <b>
+                                        {{ totalProduit }} € 
+                                        <br> 
+                                        soit {{ realPrice }} €/kg 
+                                    </b>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                    {{ form_end(form) }}
+            </div>
+
+            <div class="col-md-3">
+                <div class="card mt-4 mt-md-0">
+                    <h5 class="card-header bg-success text-white">Total</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between flex-row">
+                            <div>H.T. : </div>                            
+                             {% set realTotal = cart.total / 100 %}
+                            <span>{{ realTotal}} €</span>                             
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between flex-row">
+                            <b>T.T.C. : </b>
+                            {% set realTotalTTC = (realTotal + realTotal * 0.2)|number_format(2) %}
+                            <b>{{ realTotalTTC }} €</b>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{{ path('payment_new', {'id': cart.id}) }}" class="btn btn-success w-100">
+                            Paiement
+                        </a>
+                    </div>
+                </div>
+            </div>
+    {% else %}
+        <div class="alert alert-success">
+            Votre panier est vide. Rendez-vous sur la page 
+            <a href="{{ path('product_index') }}">
+                Produits <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            </a>
+            et commencer votre shopping !
+        </div>
+    {% endif %}
+    {% endif %}
+</div>
+
+</section>
+{% endblock %}

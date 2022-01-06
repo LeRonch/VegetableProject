@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos Commandes{% endblock %}
+
+{% block body %}
+
+<section id="order">
+    <h1>Vos Commandes</h1>
+
+        {% for order in orders %}
+            {% if order.payment != null %}
+            <div class="card" style="margin-bottom:25px;">
+                <div class="card-body">
+                    <h5 class="card-header" style="font-weight:bold;color:green;">
+                    Commande du {{ order.createdAt ? order.createdAt|date('d-m-Y') : '' }}
+                    </h5>
+                    <p class="card-text">
+                       <b> N° de commande : </b> {{ order.id }}
+                    </p>
+                    <p class="card-title"><b> Statut : </b>{{ order.status }}</p>
+                    <a href="{{ path('order_show', {'id': order.id}) }}" class="btn btn-success">
+                        Détails de la commande
+                    </a>
+                </div>
+            </div>
+            {% else %}
+                <h3 colspan="5">Aucune commande trouvée !</h3>    
+            {% endif %}
+        {% else %}
+            <h3 colspan="5">Aucune commande trouvée !</h3>
+        {% endfor %}
+
+</section>
+     
+{% endblock %}

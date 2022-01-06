@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Payment{% endblock %}
+
+{% block body %}
+    <h1>Payment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ payment.id }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ payment.amount }}</td>
+            </tr>
+          <tr>
+                <th>name</th>
+                <td>{{ payment.nbOrder.buyer.name }}</td>
+            </tr>
+          <tr>
+                <th>Commande</th>
+                <td>{{ payment.nbOrder.status }}</td>
+            </tr>
+          <tr>
+                <th>Produit</th>
+                <td>{{ payment.amount }}</td>
+            </tr>
+          
+         
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

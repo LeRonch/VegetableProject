@@ -1,0 +1,39 @@
+{{ form_start(form) }}
+    <div id="table">
+    <i id="user" class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <br>
+        <label for="name">Nom </label>
+        {{ form_widget(form.name) }}
+    <br>
+        <label for="surname">Prénom </label>
+        {{ form_widget(form.adress) }}
+
+    <br>
+     <label for="phone">Téléphone </label>
+        {{ form_widget(form.phone) }}
+
+    <br>
+     <label for="horaires">Horaires </label>
+        {{ form_widget(form.days, { 'attr': {'placeholder': 'Précisez les jours et les heures à laquelle vos clients peuvent venir récupérer leurs commandes'} }) }}
+
+    <br> 
+     <label for="postal">Code Postal </label>
+        {{ form_widget(form.postal) }}
+
+    <br>
+     <label for="city">Ville </label>
+        {{ form_widget(form.city) }}
+
+    <br>
+      <label for="country">Pays </label>
+        {{ form_widget(form.country) }}
+
+    <br>
+
+    <label for="number">Statut </label>
+        {{ form_widget(form.statut) }}
+
+    <br>
+        <button class="btn">Modifier</button>
+   </div>
+{{ form_end(form) }}

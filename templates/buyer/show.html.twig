@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<section id="profile">
+    <div class="container" >
+
+        <h1>Votre Profil</h1>
+
+        <div id="table">
+            <i id="user" class="fa fa-user-circle-o" aria-hidden="true"></i>
+
+            <h3><span id="field">Nom :</span> {{ buyer.name }}</h3>
+            <h3><span id="field">Prénom :</span> {{ buyer.surname }}</h3>
+            <h3><span id="field">Téléphone :</span> {{ buyer.number }}</h3>
+            <h3 id="last"><span id="field">Mail :</span> {{ app.user.email }}</h3>
+            <div id='link'>
+                    <a href="{{ path('buyer_edit', {'id': buyer.id}) }}">Modifier</a>
+            </div>
+        </div>
+
+
+    </div>
+    
+</section>
+{% endblock %}

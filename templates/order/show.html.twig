@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail Commande{% endblock %}
+
+{% block body %}
+
+<section id='orderDetail'>
+
+    {% if order.status == 'Payé' %}
+    <h1>Détails de la commande</h1>
+
+    <div id='detail'>
+        <h5>
+            <b> Commande n° : </b>{{ order.id }}
+            <br>
+            <b> Statut : </b>{{ order.status }}
+            <br>
+            {% set totalTTC = order.payment.amount / 100 %}
+            <b> Total TTC : </b>{{ totalTTC|round(2) }} €
+        </h5> 
+        <div class="wrapper">
+            <div class="table">
+                
+                <div class="row header green">
+                    <div class="cell">
+                        Produit
+                    </div>
+                    <div class="cell">
+                        Quantité
+                    </div>
+                    <div class="cell">
+                        Prix Unitaire /kg
+                    </div>
+                    <div class="cell">
+                        Prix Total HT
+                    </div>
+                    <div class="cell">
+                        Vendeur
+                    </div>
+                    <div class="cell">
+                        Adresse
+                    </div>
+                </div>
+            
+            {% for item in order.items %}
+                {% set realPrice = item.product.price / 100 %}
+                {% set totalHT = realPrice * item.quantity %}
+                <div class="row">
+                    <div class="cell" data-title="Produit">
+                        {{item.product.productName}}
+                    </div>
+                    <div class="cell" data-title="Quantité">
+                        {{item.quantity}}
+                    </div>
+                    <div class="cell" data-title="Prix Unitaire">
+                       {{realPrice}} €
+                    </div>
+                    <div class="cell" data-title="Prix Total HT">
+                        {{totalHT}} €
+                    </div>
+                    <div class="cell" data-title="Vendeur">
+                        {{item.product.client.name}}
+                    </div>
+                    <div class="cell" data-title="Adresse">
+                        {{item.product.client.adress}} <br>
+                        {{item.product.client.postal}}, {{item.product.client.city}}
+                    </div>
+                </div>
+        
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('order_index') }}">Revenir aux commandes</a>
+    {% else %}
+        <h1 style="margin-bottom:5%;">Commande inconnue ! </h1> 
+        <a href="{{ path('order_index') }}">Revenir aux commandes</a>
+    {% endif %}
+
+
+</section>
+{% endblock %}

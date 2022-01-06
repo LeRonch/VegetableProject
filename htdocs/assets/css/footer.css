@@ -1,0 +1,29 @@
+
+
+footer{
+
+    background-color: rgb(76, 160, 37);
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 70px;
+    flex-shrink: 0;
+
+}
+
+
+footer a{
+
+    text-decoration: none;
+    text-align: center;
+    color:white;
+
+}
+
+footer a:hover{
+
+    text-decoration: none;
+    color: greenyellow;
+
+}

@@ -1,0 +1,69 @@
+#profile{
+    height: 100%;
+    text-align: center;
+    background-image: url('../images/profilebg2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#profile h1{
+    margin-bottom: 35px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+    padding-top: 40px;
+}
+
+#profile a{
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding: 15px;
+    color : white;
+    font-weight: bold;
+    width: 50px;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
+#profile #table{
+    border: solid 1px rgb(78, 182, 31);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 35px;
+
+}
+
+#profile #field{
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+#profile #last{
+    margin-bottom: 100px;
+}
+
+#profile #user{
+
+    font-size: 80px;
+    color: rgb(78, 182, 31);
+    margin-bottom: 30px;
+}
+#profile button{
+    margin-top: 45px;
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding: 15px;
+    color : white;
+    font-weight: bold;
+    width: 150px;
+}
+
+#profile label{
+    width: 15%;
+    text-align: left;
+}

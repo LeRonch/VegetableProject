@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+    <section id="login" class="section-padding gray-bg log-section">
+        <form action="" class='login-form' method="post">
+        <h3 class="text-extrabold">Bienvenue !</h3>
+        <input type="hidden" name="_token" value="">
+
+        <div class="flex-row">
+            <label class="lf--label" for="username">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            </label>
+            <input type="email" placeholder="Mail" value="{{ last_username }}" class='lf--input' name="email" id="inputEmail" class="form-control" autocomplete="email" 
+                    autofocus
+                    required
+                    autofocus
+                    data-parsley-trigger="change"
+                    data-parsley-error-message="A valid email address is required.">
+        </div>
+
+        <div class="flex-row">
+            <label class="lf--label" for="password">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            </label>
+            <input type="password" placeholder="Mot de passe" class='lf--input' name="password" id="inputPassword" class="form-control" autocomplete="current-password" 
+                        required
+                        data-parsley-trigger="change"
+                        data-parsley-error-message="The password must be at least 6 characters.">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        </div>
+
+            <button class='lf--submit' name="login" type='submit' value='LOGIN'>
+                Connexion
+            </button>
+
+        </form>
+
+    </section>
+{% endblock %}

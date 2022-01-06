@@ -1,0 +1,33 @@
+nav .navbar-brand{
+    color: rgb(78, 182, 31) !important;
+    font-weight: bold;
+}
+
+#log{
+    margin-right: 15px;
+}
+
+nav{
+    border-bottom: grey 1.8px solid;
+}
+
+nav a {
+    border: rgb(78, 182, 31) 1.8px solid;
+    border-radius: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#home {
+    border: none;
+}
+
+#home img{
+    width: 40px;
+}
+
+#home span{
+    padding-top: 50px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+}

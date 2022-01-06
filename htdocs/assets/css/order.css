@@ -1,0 +1,154 @@
+#order{
+    background-image: url('../images/profilebg2rev.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+#order h1{
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    font-size: 50px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+}
+
+#order .card-body{
+    padding:0;
+}
+
+#order .card{
+    margin-left: 15%;
+    margin-right: 15%;    
+    border: rgb(78, 182, 31) 2.5px solid;
+}
+
+#order p{
+    margin-left: 2%;
+}
+
+#order h5{
+    margin-bottom: 2%;
+}
+
+#order a{
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color : white;
+    font-weight: bold;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
+#order h3{
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    font-size: 30px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+}
+
+#orderDetail{
+
+    background-image: url('../images/profilebg2rev.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+
+
+}
+
+#orderDetail h1{
+
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 30px;
+    font-size: 50px;
+    font-family: 'Oooh Baby', cursive;
+    letter-spacing: 1px;
+    color: rgb(78, 182, 31);
+    font-weight: bold;
+
+}
+
+#orderDetail .wrapper {
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 800px;
+  }
+  
+  #orderDetail .table {
+    margin: 0 0 40px 0;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+  }
+  @media screen and (max-width: 580px) {
+    .table {
+      display: block;
+    }
+  }
+  
+  #orderDetail .row {
+    display: table-row;
+    background: #f6f6f6;
+  }
+  #orderDetail .row:nth-of-type(odd) {
+    background: #e9e9e9;
+  }
+ 
+  #orderDetail  .row.green {
+    background: #4DA025;
+    color: white;
+  }
+ 
+  
+  #orderDetail .cell {
+    padding: 6px 12px;
+    display: table-cell;
+  }
+  @media screen and (max-width: 580px) {
+    #orderDetail .cell {
+      padding: 2px 16px;
+      display: block;
+    }
+  }
+
+  #orderDetail  #detail {
+    margin-left: 15%;
+    margin-right: 15%;
+    height: auto;
+    border: rgb(78, 182, 31) 2.5px solid;
+    margin-bottom: 5%;
+    background: none ;
+    background-color: white;
+  }
+
+  #orderDetail #detail{
+      padding-top: 25px;
+      
+  }
+
+  #orderDetail a{
+    border: rgb(78, 182, 31) 1.8px solid;
+    background-color: rgb(85, 187, 37);
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color : white;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block body %}
+<section id="cart">
+    <h1>Paiement</h1>
+    {{ include('payment/_form.html.twig') }}
+
+    <script>
+
+        let stripe = Stripe("pk_test_51IuZkVBMWIqO6CChzH8pw52KCqCZiu9mpUUmzDZvNujuuSculZwjoooNM8pY91hTTE7uRKumqaFjsv0GQHb5ecai00W8R0mT3f");
+        // The items the customer wants to buy
+        let elements = stripe.elements();
+
+        var style = {
+        base: {
+        // Add your base input styles here. For example:
+        fontSize: '18px',
+        color: '#32325d',
+        
+        },
+        };
+
+        // Create an instance of the card Element.
+        var card = elements.create('card', {style: style});
+
+            // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+    </script>
+</section>
+{% endblock %}
