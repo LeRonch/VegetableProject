@@ -80,13 +80,14 @@ class Order
 
     public function addItem(OrderItem $item): self
     {
-    foreach ($this->getItems() as $existingItem) {
-        if ($existingItem->equals($item)) {
-            $existingItem->setQuantity(
-                $existingItem->getQuantity() + $item->getQuantity()
-            );
-            return $this;
-        }
+        foreach ($this->getItems() as $existingItem) {
+            
+            if ($existingItem->equals($item)) {
+                $existingItem->setQuantity(
+                    $existingItem->getQuantity() + $item->getQuantity()
+                );
+                return $this;
+            }
     }
 
     $this->items[] = $item;
@@ -109,9 +110,9 @@ class Order
 
     public function removeItems(): self
     {
-    foreach ($this->getItems() as $item) {
-        $this->removeItem($item);
-    }
+        foreach ($this->getItems() as $item) {
+            $this->removeItem($item);
+         }
 
     return $this;
     }

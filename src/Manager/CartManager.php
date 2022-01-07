@@ -73,4 +73,5 @@ class CartManager
         $this->entityManager->flush();
         $this->cartSessionStorage->setCart($cart);
     }
+    
 }

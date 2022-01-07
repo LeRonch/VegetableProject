@@ -14,8 +14,6 @@ use App\Entity\Buyer;
 class OrderFactory
 {
     /**
-     * Creates an order.
-     *
      * @param Buyer $buyer
      * 
      * @return Order
