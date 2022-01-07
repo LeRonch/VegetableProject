@@ -27,7 +27,7 @@ class OrderItem
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank()
-     * @Assert\GreaterThanOrEqual(1)
+     * @Assert\GreaterThan(0)
      */
     private $quantity;
 
