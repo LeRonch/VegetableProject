@@ -21,7 +21,7 @@ class Order
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=OrderItem::class, mappedBy="orderRef", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=OrderItem::class, mappedBy="orderRef", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $items;
